@@ -1,0 +1,15 @@
+# http://standards.freedesktop.org/desktop-entry-spec/desktop-entry-spec-1.0.html
+
+[Desktop Entry]
+Encoding=UTF-8
+Name=OFFENSE_COIN
+Comment=OFFENSE_COIN QT main network
+GenericName=OFFENSE_COIN Digital Currency QT client main network
+Exec=offense_coin.qt %u
+Terminal=false
+Type=Application
+Icon=${SNAP}/share/pixmaps/offense_coin.png
+MimeType=x-scheme-handler/offense_coin;
+Categories=X-Office;X-Finance;
+Keywords=internet;offense_coin;ofc;core;wallet;qt;main;snap;launchpad;crypto;digital;currency;coin;token;
+Version=1.0

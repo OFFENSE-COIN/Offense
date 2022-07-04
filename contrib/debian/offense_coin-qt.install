@@ -1,0 +1,6 @@
+usr/local/bin/offense_coin-qt usr/bin
+share/pixmaps/offense_coin32.xpm usr/share/pixmaps
+share/pixmaps/offense_coin16.xpm usr/share/pixmaps
+share/pixmaps/offense_coin128.png usr/share/pixmaps
+debian/offense_coin-qt.desktop usr/share/applications
+debian/offense_coin-qt.protocol usr/share/kde4/services/

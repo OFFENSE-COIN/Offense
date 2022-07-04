@@ -1,0 +1,67 @@
+#!/bin/bash
+#
+#  offense_coind The OFFENSE_COIN core server.
+#
+#
+# chkconfig: 345 80 20
+# description: offense_coind
+# processname: offense_coind
+#
+
+# Source function library.
+. /etc/init.d/functions
+
+# you can override defaults in /etc/sysconfig/offense_coind, see below
+if [ -f /etc/sysconfig/offense_coind ]; then
+        . /etc/sysconfig/offense_coind
+fi
+
+RETVAL=0
+
+prog=offense_coind
+# you can override the lockfile via BITCOIND_LOCKFILE in /etc/sysconfig/offense_coind
+lockfile=${BITCOIND_LOCKFILE-/var/lock/subsys/offense_coind}
+
+# offense_coind defaults to /usr/bin/offense_coind, override with BITCOIND_BIN
+bitcoind=${BITCOIND_BIN-/usr/bin/offense_coind}
+
+# offense_coind opts default to -disablewallet, override with BITCOIND_OPTS
+bitcoind_opts=${BITCOIND_OPTS}
+
+start() {
+    echo -n $"Starting $prog: "
+    daemon $DAEMONOPTS $bitcoind $bitcoind_opts
+    RETVAL=$?
+    echo
+    [ $RETVAL -eq 0 ] && touch $lockfile
+    return $RETVAL
+}
+
+stop() {
+    echo -n $"Stopping $prog: "
+    killproc $prog
+    RETVAL=$?
+    echo
+    [ $RETVAL -eq 0 ] && rm -f $lockfile
+    return $RETVAL
+}
+
+case "$1" in
+    start)
+        start
+        ;;
+    stop)
+        stop
+        ;;
+    status)
+        status $prog
+        ;;
+    restart)
+        stop
+        start
+        ;;
+    *)
+        echo "Usage: service $prog {start|stop|status|restart}"
+        exit 1
+        ;;
+esac

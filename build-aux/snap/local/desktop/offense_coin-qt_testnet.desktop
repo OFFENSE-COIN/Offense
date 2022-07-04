@@ -1,0 +1,15 @@
+# http://standards.freedesktop.org/desktop-entry-spec/desktop-entry-spec-1.0.html
+
+[Desktop Entry]
+Encoding=UTF-8
+Name=OFFENSE_COIN
+Comment=OFFENSE_COIN QT test network
+GenericName=OFFENSE_COIN Digital Currency QT client testnet network
+Exec=offense_coin.qt-testnet %u
+Terminal=false
+Type=Application
+Icon=${SNAP}/share/pixmaps/offense_coin_testnet.png
+MimeType=x-scheme-handler/ofc;
+Categories=X-Office;X-Finance;
+Keywords=internet;offense_coin;tofc;core;wallet;qt;testnet;snap;launchpad;crypto;digital;currency;coin;token;
+Version=1.0

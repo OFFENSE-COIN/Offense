@@ -1,0 +1,13 @@
+[Desktop Entry]
+Version=1.0
+Name=OFFENSE_COIN
+Comment=OFFENSE_COIN P2P Cryptocurrency
+Comment[fr]=OFFENSE_COIN, monnaie virtuelle cryptographique pair à pair
+Comment[tr]=OFFENSE_COIN, eşten eşe kriptografik sanal para birimi
+Exec=offense_coin-qt %u
+Terminal=false
+Type=Application
+Icon=offense_coin128
+MimeType=x-scheme-handler/offense_coin;
+Categories=Office;Finance;
+StartupWMClass=Offense_Coin-qt

@@ -1,0 +1,10 @@
+QT_TS = \
+  qt/locale/offense_coin_de.ts \
+  qt/locale/offense_coin_en.ts \
+  qt/locale/offense_coin_en_US.ts \
+  qt/locale/offense_coin_es.ts \
+  qt/locale/offense_coin_fr_FR.ts \
+  qt/locale/offense_coin_hr_HR.ts \
+  qt/locale/offense_coin_ko_KR.ts \
+  qt/locale/offense_coin_nl.ts \
+  qt/locale/offense_coin_pl.ts

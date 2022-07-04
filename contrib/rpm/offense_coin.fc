@@ -1,0 +1,8 @@
+/usr/bin/offense_coin-cli		--	gen_context(system_u:object_r:offense_coin_exec_t,s0)
+/usr/sbin/offense_coind		--	gen_context(system_u:object_r:offense_coin_exec_t,s0)
+/usr/lib(64)?/offense_coin/offense_coind		--	gen_context(system_u:object_r:offense_coin_exec_t,s0)
+
+/etc/offense_coin(/.*)?		gen_context(system_u:object_r:offense_coin_conf_t,s0)
+/var/lib/offense_coin(/.*)?		gen_context(system_u:object_r:offense_coin_var_lib_t,s0)
+
+(/var)?/run/offense_coind(/.*)?   gen_context(system_u:object_r:offense_coin_var_run_t,s0)
