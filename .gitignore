@@ -6,14 +6,14 @@ reset-files.bash
 *.tar.gz
 
 *.exe
-src/voltnote
-src/voltnoted
-src/voltnote-cli
-src/voltnote-tx
-src/bench/bench_voltnote
-src/test/test_voltnote
-src/test/test_voltnote_fuzzy
-src/qt/test/test_voltnote-qt
+src/offense_coin
+src/offense_coind
+src/offense_coin-cli
+src/offense_coin-tx
+src/bench/bench_offense_coin
+src/test/test_offense_coin
+src/test/test_offense_coin_fuzzy
+src/qt/test/test_offense_coin-qt
 src/test/fuzz/address_deserialize
 src/test/fuzz/addrman_deserialize
 src/test/fuzz/banentry_deserialize
@@ -60,8 +60,8 @@ confdefs.h
 conftest.cpp
 conftest.err
 libtool
-src/config/voltnote-config.h
-src/config/voltnote-config.h.in
+src/config/offense_coin-config.h
+src/config/offense_coin-config.h.in
 src/config/stamp-h1
 src/obj
 share/setup.nsi
@@ -87,7 +87,7 @@ src/qt/test/moc*.cpp
 *.pyc
 *.o
 *.o-*
-.voltnote
+.offense_coin
 *.a
 *.pb.cc
 *.pb.h
@@ -110,8 +110,8 @@ src/qt/test/moc*.cpp
 # Compilation and Qt preprocessor part
 *.qm
 Makefile
-voltnote-qt
-voltnote-Qt.app
+offense_coin-qt
+offense_coin-Qt.app
 background.tiff*
 
 # Rust
@@ -121,7 +121,7 @@ target/
 
 # Unit-tests
 Makefile.test
-voltnote-qt_test
+offense_coin-qt_test
 src/test/buildenv.py
 
 # Resources cpp
@@ -137,7 +137,7 @@ build
 #lcov
 *.gcno
 /*.info
-test_voltnote.coverage/
+test_offense_coin.coverage/
 total.coverage/
 coverage_percent.txt
 
@@ -168,8 +168,8 @@ moc_*
 *.tmp
 ui_*
 build*
-voltnoted.*
-voltnoted-new-gui.*
+offense_coind.*
+offense_coind-new-gui.*
 /cov-int/
 
 #cmake
