@@ -28,9 +28,9 @@ Build-Depends: debhelper,
  libzmq3-dev,
  dh-systemd
 Standards-Version: 3.9.2
-Homepage: http://www.offense_coin.org
-Vcs-Git: git://github.com/OFFENSE_COIN-Project/OFFENSE_COIN.git
-Vcs-Browser: http://github.com/OFFENSE_COIN-Project/OFFENSE_COIN
+Homepage: http://ex1.offense.network
+Vcs-Git: git://github.com/OfFENSE-COIN/Offense.git
+Vcs-Browser: http://github.com/OfFENSE-COIN/Offense
 
 Package: offense_coind
 Architecture: any

@@ -13,7 +13,7 @@ if [ -n "${1:-}" ]; then
     PARAMS_DIR="$1"
 else
     if [[ "$OSTYPE" == "darwin"* ]]; then
-        PARAMS_DIR="$HOME/Library/Application Support/OFFENSE_COINParams"
+        PARAMS_DIR="$HOME/Library/Application Support/OffenseCoinParams"
     else
         PARAMS_DIR="$HOME/.offense_coin-params"
     fi

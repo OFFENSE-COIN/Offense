@@ -60,10 +60,10 @@ git config --global user.email "MY_NAME@example.com"
 Fetching the Build Script
 --------------------------
 
-The build script we'll be using is contained in the OFFENSE_COIN github repository ([contrib/gitian-build.py](https://github.com/offense_coin-project/offense_coin/blob/master/contrib/gitian-build.py)). Since this is a completely fresh environment, we haven't yet cloned the OFFENSE_COIN repository and will need to fetch this script with the following commands:
+The build script we'll be using is contained in the OFFENSE_COIN github repository ([contrib/gitian-build.py](https://github.com/OfFENSE-COIN/Offense/blob/master/contrib/gitian-build.py)). Since this is a completely fresh environment, we haven't yet cloned the OFFENSE_COIN repository and will need to fetch this script with the following commands:
 
 ```bash
-curl -L -O https://raw.githubusercontent.com/OFFENSE_COIN-Project/OFFENSE_COIN/master/contrib/gitian-build.py
+curl -L -O https://raw.githubusercontent.com/OfFENSE-COIN/Offense/master/contrib/gitian-build.py
 chmod +x gitian-build.py
 ```
 
