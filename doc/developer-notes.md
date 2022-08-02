@@ -5,40 +5,41 @@ Developer Notes
 **Table of Contents**
 
 - [Developer Notes](#developer-notes)
-    - [Coding Style (General)](#coding-style-general)
-    - [Coding Style (C++)](#coding-style-c)
-    - [Coding Style (Python)](#coding-style-python)
-    - [Coding Style (Doxygen-compatible comments)](#coding-style-doxygen-compatible-comments)
-    - [Development tips and tricks](#development-tips-and-tricks)
-        - [Compiling for debugging](#compiling-for-debugging)
-        - [Compiling for gprof profiling](#compiling-for-gprof-profiling)
-        - [debug.log](#debuglog)
-        - [Testnet and Regtest modes](#testnet-and-regtest-modes)
-        - [DEBUG_LOCKORDER](#debug_lockorder)
-        - [Valgrind suppressions file](#valgrind-suppressions-file)
-        - [Compiling for test coverage](#compiling-for-test-coverage)
-        - [Performance profiling with perf](#performance-profiling-with-perf)
-    - [Locking/mutex usage notes](#lockingmutex-usage-notes)
-    - [Threads](#threads)
-    - [Ignoring IDE/editor files](#ignoring-ideeditor-files)
+  - [Coding Style (General)](#coding-style-general)
+  - [Coding Style (C++)](#coding-style-c)
+  - [Coding Style (Python)](#coding-style-python)
+  - [Coding Style (Doxygen-compatible comments)](#coding-style-doxygen-compatible-comments)
+  - [Development tips and tricks](#development-tips-and-tricks)
+    - [Compiling for debugging](#compiling-for-debugging)
+    - [Compiling for gprof profiling](#compiling-for-gprof-profiling)
+    - [debug.log](#debuglog)
+    - [Testnet and Regtest modes](#testnet-and-regtest-modes)
+    - [DEBUG_LOCKORDER](#debug_lockorder)
+    - [Valgrind suppressions file](#valgrind-suppressions-file)
+    - [Compiling for test coverage](#compiling-for-test-coverage)
+  - [Locking/mutex usage notes](#lockingmutex-usage-notes)
+  - [Threads](#threads)
+  - [Ignoring IDE/editor files](#ignoring-ideeditor-files)
 - [Development guidelines](#development-guidelines)
-    - [General OFFENSE_COIN](#general-offense_coin)
-    - [Wallet](#wallet)
-    - [General C++](#general-c)
-    - [C++ data structures](#c-data-structures)
-    - [Strings and formatting](#strings-and-formatting)
-    - [Variable names](#variable-names)
-    - [Threads and synchronization](#threads-and-synchronization)
-    - [Scripts](#scripts)
-        - [Shebang](#shebang)
-    - [Source code organization](#source-code-organization)
-    - [GUI](#gui)
-    - [Subtrees](#subtrees)
-    - [Upgrading LevelDB](#upgrading-leveldb)
-    - [Scripted diffs](#scripted-diffs)
-    - [Git and GitHub tips](#git-and-github-tips)
-    - [Release notes](#release-notes)
-    - [RPC interface guidelines](#rpc-interface-guidelines)
+  - [General OFFENSE_COIN](#general-offense_coin)
+  - [Wallet](#wallet)
+  - [General C++](#general-c)
+  - [C++ data structures](#c-data-structures)
+  - [Strings and formatting](#strings-and-formatting)
+  - [Variable names](#variable-names)
+  - [Threads and synchronization](#threads-and-synchronization)
+  - [Scripts](#scripts)
+    - [Shebang](#shebang)
+  - [Source code organization](#source-code-organization)
+  - [GUI](#gui)
+  - [Subtrees](#subtrees)
+  - [Upgrading LevelDB](#upgrading-leveldb)
+    - [File Descriptor Counts](#file-descriptor-counts)
+    - [Consensus Compatibility](#consensus-compatibility)
+  - [Scripted diffs](#scripted-diffs)
+  - [Git and GitHub tips](#git-and-github-tips)
+  - [Release notes](#release-notes)
+  - [RPC interface guidelines](#rpc-interface-guidelines)
 
 <!-- markdown-toc end -->
 
@@ -234,7 +235,7 @@ debug.log file if inconsistencies are detected.
 
 Valgrind is a programming tool for memory debugging, memory leak detection, and
 profiling. The repo contains a Valgrind suppressions file
-([`valgrind.supp`](https://github.com/offense_coin-project/offense_coin/blob/master/contrib/valgrind.supp))
+([`valgrind.supp`](https://github.com/OfFENSE-COIN/Offense/blob/master/contrib/valgrind.supp))
 which includes known Valgrind warnings in our dependencies that cannot be fixed
 in-tree. Example use:
 
@@ -847,7 +848,7 @@ Git and GitHub tips
 
         [remote "upstream-pull"]
                 fetch = +refs/pull/*:refs/remotes/upstream-pull/*
-                url = git@github.com:OFFENSE_COIN-Project/OFFENSE_COIN.git
+                url = git@github.com:OfFENSE-COIN/Offense.git
 
   This will add an `upstream-pull` remote to your git repository, which can be fetched using `git fetch --all`
   or `git fetch upstream-pull`. Afterwards, you can use `upstream-pull/NUMBER/head` in arguments to `git show`,

@@ -8,7 +8,7 @@ architectures:
 packages:
 - "faketime"
 remotes:
-- "url": "https://github.com/offense_coin-project/offense_coin-detached-sigs.git"
+- "url": "https://github.com/OfFENSE-COIN/Offense-detached-sigs.git"
   "dir": "signature"
 files:
 - "offense_coin-osx-unsigned.tar.gz"

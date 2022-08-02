@@ -28,7 +28,7 @@ Drag OFFENSE_COIN-Qt to your applications folder, and then run OFFENSE_COIN-Qt.
 
 ### Need Help?
 
-* See the documentation at the [OFFENSE_COIN Wiki](https://github.com/OFFENSE_COIN-Project/OFFENSE_COIN/wiki)
+* See the documentation at the [OFFENSE_COIN Wiki](https://github.com/OfFENSE-COIN/Offense/wiki)
 for help and more information.
 * Ask for help on [BitcoinTalk](https://bitcointalk.org/index.php?topic=1262920.0) or on the [OFFENSE_COIN Forum](http://forum.offense_coin.org/).
 * Join our Discord server [Discord Server](https://discord.offense_coin.org)

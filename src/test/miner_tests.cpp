@@ -15,6 +15,7 @@
 #include "util/system.h"
 #include "validation.h"
 #include "wallet/wallet.h"
+#include "utilstrencodings.h"
 
 #include <boost/test/unit_test.hpp>
 

@@ -74,7 +74,7 @@ Section -Main SEC0000
     File @abs_top_srcdir@/release/@BITCOIN_CLI_NAME@@EXEEXT@
     SetOutPath $INSTDIR\doc
     File /r @abs_top_srcdir@/doc\*.*
-    SetOutPath $APPDATA\OFFENSE_COINParams
+    SetOutPath $APPDATA\OffenseCoinParams
     File @abs_top_srcdir@/params/sapling-output.params
     File @abs_top_srcdir@/params/sapling-spend.params
     SetOutPath $INSTDIR

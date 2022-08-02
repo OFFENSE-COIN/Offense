@@ -14,6 +14,7 @@
 #include "tinyformat.h"
 #include "utilmoneystr.h"
 #include "validation.h"
+#include "utilstrencodings.h"
 
 #include <boost/test/unit_test.hpp>
 

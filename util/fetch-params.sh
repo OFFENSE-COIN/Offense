@@ -2,6 +2,7 @@
 #
 # Copyright (c) 2015-2020 The Zcash developers
 # Copyright (c) 2020 The PIVX developers
+# Copyright (c) 2021 The Offense Coin developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -13,14 +14,17 @@ if [ -n "${1:-}" ]; then
     PARAMS_DIR="$1"
 else
     if [[ "$OSTYPE" == "darwin"* ]]; then
-        PARAMS_DIR="$HOME/Library/Application Support/OFFENSE_COINParams"
+        PARAMS_DIR="$HOME/Library/Application Support/OffenseCoinParams"
     else
-        PARAMS_DIR="$HOME/.offense_coin-params"
+        PARAMS_DIR="$HOME/.nuwacoin-params"
     fi
 fi
 
+SPROUT_PKEY_NAME='sprout-proving.key'
+SPROUT_VKEY_NAME='sprout-verifying.key'
 SAPLING_SPEND_NAME='sapling-spend.params'
 SAPLING_OUTPUT_NAME='sapling-output.params'
+SAPLING_SPROUT_GROTH16_NAME='sprout-groth16.params'
 DOWNLOAD_URL="https://download.z.cash/downloads"
 IPFS_HASH="/ipfs/QmXRHVGLQBiKwvNq7c2vPxAKz1zRVmMYbmt7G5TQss7tY7"
 
@@ -30,6 +34,21 @@ SHA256ARGS="$(command -v sha256sum >/dev/null || echo '-a 256')"
 WGETCMD="$(command -v wget || echo '')"
 IPFSCMD="$(command -v ipfs || echo '')"
 CURLCMD="$(command -v curl || echo '')"
+
+# fetch methods can be disabled with ZC_DISABLE_SOMETHING=1
+ZC_DISABLE_WGET="${ZC_DISABLE_WGET:-}"
+ZC_DISABLE_IPFS="${ZC_DISABLE_IPFS:-}"
+ZC_DISABLE_CURL="${ZC_DISABLE_CURL:-}"
+
+function fetch_wget {
+    if [ -z "$WGETCMD" ] || ! [ -z "$ZC_DISABLE_WGET" ]; then
+        return 1
+    fi
+
+    local filename="$1"
+    local dlname="$2"
+
+    cat <<EOF
 
 Retrieving (wget): $DOWNLOAD_URL/$filename
 EOF
@@ -42,11 +61,31 @@ EOF
         "$DOWNLOAD_URL/$filename"
 }
 
+function fetch_ipfs {
+    if [ -z "$IPFSCMD" ] || ! [ -z "$ZC_DISABLE_IPFS" ]; then
+        return 1
+    fi
+
+    local filename="$1"
+    local dlname="$2"
+
+    cat <<EOF
+
 Retrieving (ipfs): $IPFS_HASH/$filename
 EOF
 
     ipfs get --output "$dlname" "$IPFS_HASH/$filename"
 }
+
+function fetch_curl {
+    if [ -z "$CURLCMD" ] || ! [ -z "$ZC_DISABLE_CURL" ]; then
+        return 1
+    fi
+
+    local filename="$1"
+    local dlname="$2"
+
+    cat <<EOF
 
 Retrieving (curl): $DOWNLOAD_URL/$filename
 EOF
@@ -61,7 +100,7 @@ EOF
 function fetch_failure {
     cat >&2 <<EOF
 
-Failed to fetch the OFFENSE_COIN zkSNARK parameters!
+Failed to fetch the NuwaCoin zkSNARK parameters!
 Try installing one of the following programs and make sure you're online:
 
  * ipfs
@@ -101,7 +140,7 @@ function fetch_params {
         cat "${dlname}.part.1" "${dlname}.part.2" > "${dlname}"
         rm "${dlname}.part.1" "${dlname}.part.2"
 
-        "$SHA256CMD" "$SHA256ARGS" -c <<EOF
+        "$SHA256CMD" $SHA256ARGS -c <<EOF
 $expectedhash  $dlname
 EOF
 
@@ -146,9 +185,9 @@ function main() {
     || exit_locked_error
 
     cat <<EOF
-OFFENSE_COIN - fetch-params.sh
+NuwaCoin - fetch-params.sh
 
-This script will fetch the OFFENSE_COIN zkSNARK parameters and verify their
+This script will fetch the NuwaCoin zkSNARK parameters and verify their
 integrity with sha256sum.
 
 If they already exist locally, it will exit now and do nothing else.
@@ -160,7 +199,7 @@ EOF
         mkdir -p "$PARAMS_DIR"
         README_PATH="$PARAMS_DIR/README"
         cat >> "$README_PATH" <<EOF
-This directory stores common OFFENSE_COIN zkSNARK parameters. Note that it is
+This directory stores common NuwaCoin zkSNARK parameters. Note that it is
 distinct from the daemon's -datadir argument because the parameters are
 large and may be shared across multiple distinct -datadir's such as when
 setting up test networks.
@@ -169,7 +208,10 @@ EOF
         # This may be the first time the user's run this script, so give
         # them some info, especially about bandwidth usage:
         cat <<EOF
-If the files are already present and have the correct
+The complete parameters are currently just under 1.7GB in size, so plan
+accordingly for your bandwidth constraints. If the Sprout parameters are
+already present the additional Sapling parameters required are just under
+800MB in size. If the files are already present and have the correct
 sha256sum, no networking is used.
 
 Creating params directory. For details about this directory, see:
@@ -183,6 +225,7 @@ EOF
     # Sapling parameters:
     fetch_params "$SAPLING_SPEND_NAME" "$PARAMS_DIR/$SAPLING_SPEND_NAME" "8e48ffd23abb3a5fd9c5589204f32d9c31285a04b78096ba40a79b75677efc13"
     fetch_params "$SAPLING_OUTPUT_NAME" "$PARAMS_DIR/$SAPLING_OUTPUT_NAME" "2f0ebbcbb9bb0bcffe95a397e7eba89c29eb4dde6191c339db88570e3f3fb0e4"
+    fetch_params "$SAPLING_SPROUT_GROTH16_NAME" "$PARAMS_DIR/$SAPLING_SPROUT_GROTH16_NAME" "b685d700c60328498fbde589c8c7c484c722b788b265b72af448a5bf0ee55b50"
 }
 
 if [ "x${1:-}" = 'x--testnet' ]

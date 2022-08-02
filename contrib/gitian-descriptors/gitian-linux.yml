@@ -33,7 +33,7 @@ packages:
 - "ca-certificates"
 - "python3"
 remotes:
-- "url": "https://github.com/offense_coin-project/offense_coin.git"
+- "url": "https://github.com/OfFENSE-COIN/Offense.git"
   "dir": "offense_coin"
 files: []
 script: |
@@ -121,7 +121,7 @@ script: |
   chmod +x ${WRAP_DIR}/${prog}
   done
 
-  cd offense_coin
+  cd Offense
   BASEPREFIX="${PWD}/depends"
   # Build dependencies for each host
   for i in $HOSTS; do

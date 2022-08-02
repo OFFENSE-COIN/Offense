@@ -1,10 +1,10 @@
 (note: this is a temporary file, to be added-to by anybody, and moved to release-notes at release time)
 
-OFFENSE_COIN version *version* is now available from:  <https://github.com/offense_coin-project/offense_coin/releases>
+OFFENSE_COIN version *version* is now available from:  <https://github.com/OfFENSE-COIN/Offense/releases>
 
 This is a new major version release, including various bug fixes and performance improvements, as well as updated translations.
 
-Please report bugs using the issue tracker at github: <https://github.com/offense_coin-project/offense_coin/issues>
+Please report bugs using the issue tracker at github: <https://github.com/OfFENSE-COIN/Offense/issues>
 
 
 How to Upgrade
